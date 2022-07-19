@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "../../node_modules"
+      ]
+    },
+    "outDir": "./build",
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ]
+}

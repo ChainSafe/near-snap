@@ -1,0 +1,33 @@
+{
+  "name": "root",
+  "private": true,
+  "author": "ChainSafe <info@chainsafe.io>",
+  "license": "(Apache-2.0 AND MIT)",
+  "packageManager": "yarn@3.2.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "build:snap": "yarn workspace near-snap build",
+    "build:adapter": "yarn workspace @chainsafe/metamask-near-adapter build",
+    "start:snap": "yarn workspace near-snap serve",
+    "build": "yarn workspaces foreach -vpt run build",
+    "test": "yarn workspaces foreach -vpt run test",
+    "lint": "yarn workspaces foreach -vpt run lint",
+    "lint:style:fix": "yarn workspaces foreach -vp run lint:style:fix",
+    "demo": "concurrently  --raw --kill-others \"yarn run start:snap\" \"yarn run start:example\""
+  },
+  "devDependencies": {
+    "@chainsafe/eslint-config": "^1.0.0",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@types/node": "^17.0.36",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "typescript": "4.7.3"
+  }
+}

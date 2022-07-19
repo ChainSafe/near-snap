@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "proposedName": "Near snap",
+  "description": "The Near snap.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chainsafe/near-snap.git"
+  },
+  "source": {
+    "shasum": "VNuIfE8jGy9/zB8mqrA2Eonxtc9gmMVXGe5DKzSvH38=",
+    "location": {
+      "npm": {
+        "filePath": "./dist/bundle.js",
+        "packageName": "near-snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "endowment:network-access": {},
+    "snap_confirm": {},
+    "snap_getBip44Entropy_354": {},
+    "snap_getBip44Entropy_434": {},
+    "snap_manageState": {}
+  },
+  "manifestVersion": "0.1"
+}
