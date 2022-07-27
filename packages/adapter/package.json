@@ -5,7 +5,7 @@
   "module": "./build/index.js",
   "types": "./build/index.d.ts",
   "author": "chainsafe <info@chainsafe.io>",
-  "license":  "(MIT)",
+  "license": "(MIT)",
   "homepage": "",
   "keywords": [
     "near",
@@ -27,9 +27,6 @@
     "lint:style": "eslint --color 'src/**/*.{js,ts,tsx}'",
     "lint:style:fix": "yarn run lint:style --fix",
     "test": "exit 0"
-  },
-  "dependencies": {
-    
   },
   "devDependencies": {
     "@types/node": "^17.0.36",

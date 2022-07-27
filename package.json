@@ -12,11 +12,11 @@
   },
   "scripts": {
     "build:snap": "yarn workspace near-snap build",
-    "build:adapter": "yarn workspace @chainsafe/metamask-near-adapter build",
+    "build:adapter": "yarn workspace @chainsafe/nearsnap-adapter build",
     "start:snap": "yarn workspace near-snap serve",
-    "build": "yarn workspaces run build",
-    "test": "yarn workspaces run test",
-    "lint": "yarn workspaces run lint",
+    "build": "yarn workspaces foreach -vpt run build",
+    "test": "yarn workspaces foreach -vpt run test",
+    "lint": "yarn workspaces foreach -vpt run lint",
     "lint:style:fix": "yarn workspaces foreach -vp run lint:style:fix",
     "demo": "concurrently  --raw --kill-others \"yarn run start:snap\" \"yarn run start:example\""
   },
