@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "../../node_modules"
+      ]
+    },
+    "outDir": "./build",
+  },
+  "files": ["../../node_modules/@metamask/snap-types/global.d.ts"],
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ]
+}
