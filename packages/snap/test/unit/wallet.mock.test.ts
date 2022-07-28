@@ -1,7 +1,6 @@
-import {Wallet} from "../../src/interfaces";
 import sinon from "sinon";
 
-export class WalletMock implements Wallet {
+export class WalletMock {
   public readonly requestStub = sinon.stub();
 
   public readonly rpcStubs = {

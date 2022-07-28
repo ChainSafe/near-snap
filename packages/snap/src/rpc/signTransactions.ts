@@ -1,5 +1,5 @@
-import { Wallet } from "../interfaces";
+import { SnapRpcRequest } from "../interfaces";
 // eslint-disable-next-line
-export async function signTransactions(wallet: Wallet, params: unknown) {
+export async function signTransactions(request: SnapRpcRequest) {
   //TODO
 }

@@ -1,7 +1,7 @@
+import { SnapRpcRequest } from "../interfaces";
 import { getKeyPair } from "../near/account";
-import { Wallet } from "../interfaces";
 
-export async function getAccount(wallet: Wallet): Promise<string> {
-  const keyPair = await getKeyPair(wallet);
+export async function getAccount(request: SnapRpcRequest): Promise<string> {
+  const keyPair = await getKeyPair(request);
   return keyPair.address;
 }

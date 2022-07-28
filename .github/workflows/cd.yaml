@@ -2,12 +2,12 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   maybe-release:
     name: release
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
 
         # you should probably do this after your regular CI checks passes
@@ -16,7 +16,7 @@ jobs:
         with:
           command: manifest
           token: ${{secrets.GITHUB_TOKEN}}
-          default-branch: master
+          default-branch: main
           release-type: node
           monorepo-tags: true
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
