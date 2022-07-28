@@ -3,6 +3,7 @@ import {
   JsonBIP44CoinTypeNode,
 } from "@metamask/key-tree";
 import { SnapRpcRequest } from "../interfaces";
+
 export interface KeyPair {
   address: string;
   privateKey: string;
@@ -12,6 +13,7 @@ export interface KeyPair {
 const nearCoinType = 397;
 
 export async function getKeyPair(request: SnapRpcRequest): Promise<KeyPair> {
+  //@ts-ignore:next-line
   const bip44Node = (await request({
     method: `snap_getBip44Entropy_${nearCoinType}`,
     params: [],
