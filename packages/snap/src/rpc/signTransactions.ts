@@ -1,5 +1,4 @@
-import { SnapRpcRequest } from "../interfaces";
-// eslint-disable-next-line
-export async function signTransactions(request: SnapRpcRequest) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function signTransactions(_params: unknown): Promise<void> {
   //TODO
 }

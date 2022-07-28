@@ -2,7 +2,8 @@ import {
   getBIP44AddressKeyDeriver,
   JsonBIP44CoinTypeNode,
 } from "@metamask/key-tree";
-import { SnapRpcRequest } from "../interfaces";
+import { SnapProvider } from "@metamask/snap-types";
+
 export interface KeyPair {
   address: string;
   privateKey: string;
@@ -11,8 +12,8 @@ export interface KeyPair {
 
 const nearCoinType = 397;
 
-export async function getKeyPair(request: SnapRpcRequest): Promise<KeyPair> {
-  const bip44Node = (await request({
+export async function getKeyPair(wallet: SnapProvider): Promise<KeyPair> {
+  const bip44Node = (await wallet.request({
     method: `snap_getBip44Entropy_${nearCoinType}`,
     params: [],
   })) as JsonBIP44CoinTypeNode;
