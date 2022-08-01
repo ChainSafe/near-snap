@@ -12,7 +12,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
     case Methods.GetAddress:
       return await getAccount(wallet);
     case Methods.SignTransaction:
-      return await signTransactions(request);
+      return await signTransactions(wallet);
 
     default:
       throw new Error("Method not found.");
