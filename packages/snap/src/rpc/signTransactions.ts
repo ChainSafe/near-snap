@@ -1,4 +1,41 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function signTransactions(_params: unknown): Promise<void> {
-  //TODO
+import { transactions, InMemorySigner, KeyPair } from "near-api-js";
+import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
+import { SignedTransaction } from "near-api-js/lib/transaction";
+import { SnapProvider } from "@metamask/snap-types";
+import { getKeyPair } from "../near/account";
+import { SignTransactionsParams } from "../utils/params";
+
+export async function signTransactions(
+  wallet: SnapProvider,
+  params: SignTransactionsParams
+): Promise<[Uint8Array, SignedTransaction][]> {
+  const signedTransactions: [Uint8Array, SignedTransaction][] = [];
+
+  const { transactions: transactionsArray, network } = params;
+  const keyPairMetamask = await getKeyPair(wallet);
+
+  const keyPair = KeyPair.fromString(keyPairMetamask.privateKey);
+
+  // keystore
+  const keystore = new InMemoryKeyStore();
+  const accountId = keyPair.getPublicKey().toString();
+  await keystore.setKey(network, accountId, keyPair);
+
+  const signer = new InMemorySigner(keystore);
+
+  for (const transaction of transactionsArray) {
+    try {
+      const signedTransaction = await transactions.signTransaction(
+        transaction,
+        signer,
+        accountId,
+        network
+      );
+      signedTransactions.push(signedTransaction);
+    } catch (e) {
+      throw new Error(`Failed to sign transaction`);
+    }
+  }
+
+  return signedTransactions;
 }
