@@ -1,9 +1,4 @@
-import { transactions } from "near-api-js";
-
-export interface SignTransactionsParams {
-  transactions: transactions.Transaction[];
-  network: string;
-}
+import { SignTransactionsParams, NearNetwork } from "../interfaces";
 
 export function isValidSignTransactions(params: unknown): asserts params is {
   signTransactions: SignTransactionsParams;
@@ -20,5 +15,15 @@ export function isValidSignTransactions(params: unknown): asserts params is {
     )
   ) {
     throw new Error("Invalid sign request");
+  }
+}
+
+export function isValidAccountParams(params: unknown): asserts params is {
+  network: NearNetwork;
+} {
+  if (!(params != null && typeof params == "object" && "network" in params)) {
+    throw new Error(
+      "Invalid network parameter, 'testnet' or 'mainnet' required"
+    );
   }
 }

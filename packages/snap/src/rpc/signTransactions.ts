@@ -1,9 +1,9 @@
-import { transactions, InMemorySigner, KeyPair } from "near-api-js";
+import { transactions, InMemorySigner } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { SignedTransaction } from "near-api-js/lib/transaction";
 import { SnapProvider } from "@metamask/snap-types";
 import { getKeyPair } from "../near/account";
-import { SignTransactionsParams } from "../utils/params";
+import { SignTransactionsParams } from "../interfaces";
 
 export async function signTransactions(
   wallet: SnapProvider,
@@ -12,9 +12,8 @@ export async function signTransactions(
   const signedTransactions: [Uint8Array, SignedTransaction][] = [];
 
   const { transactions: transactionsArray, network } = params;
-  const keyPairMetamask = await getKeyPair(wallet);
 
-  const keyPair = KeyPair.fromString(keyPairMetamask.privateKey);
+  const keyPair = await getKeyPair(wallet, network);
 
   // keystore
   const keystore = new InMemoryKeyStore();

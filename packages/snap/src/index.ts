@@ -1,7 +1,7 @@
 import { OnRpcRequestHandler } from "@metamask/snap-types";
 import { getAccount } from "./rpc/getAccount";
 import { signTransactions } from "./rpc/signTransactions";
-import { isValidSignTransactions } from "./utils/params";
+import { isValidAccountParams, isValidSignTransactions } from "./utils/params";
 
 export enum Methods {
   GetAddress = "near_getAccount",
@@ -11,7 +11,8 @@ export enum Methods {
 export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
   switch (request.method) {
     case Methods.GetAddress:
-      return await getAccount(wallet);
+      isValidAccountParams(request.params);
+      return await getAccount(wallet, request.params.network);
     case Methods.SignTransaction:
       isValidSignTransactions(request.params);
       return await signTransactions(wallet, request.params.signTransactions);
