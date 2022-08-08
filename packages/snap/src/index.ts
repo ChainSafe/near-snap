@@ -1,7 +1,11 @@
 import { OnRpcRequestHandler } from "@metamask/snap-types";
 import { getAccount } from "./rpc/getAccount";
 import { signTransactions } from "./rpc/signTransactions";
-import { isValidAccountParams, isValidSignTransactions } from "./utils/params";
+import {
+  signTransactionsSchema,
+  validAccountSchema,
+  validateParams,
+} from "./utils/params";
 
 export enum Methods {
   GetAddress = "near_getAccount",
@@ -11,11 +15,11 @@ export enum Methods {
 export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
   switch (request.method) {
     case Methods.GetAddress:
-      isValidAccountParams(request.params);
+      validateParams(validAccountSchema, request.params);
       return await getAccount(wallet, request.params.network);
     case Methods.SignTransaction:
-      isValidSignTransactions(request.params);
-      return await signTransactions(wallet, request.params.signTransactions);
+      validateParams(signTransactionsSchema, request.params);
+      return await signTransactions(wallet, request.params);
 
     default:
       throw new Error("Method not found.");
