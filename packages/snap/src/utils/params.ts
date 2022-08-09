@@ -1,28 +1,12 @@
-import Joi from "joi";
-import { SignTransactionsParams, NearNetwork } from "../interfaces";
+import { object, string, array } from "superstruct";
 
-const networkSchema = Joi.string()
-  .valid(["mainnet", "testnet"])
-  .required()
-  .messages({
-    "string.valid":
-      "Invalid network parameter, 'testnet' or 'mainnet' required",
-    "any.required": "Missing field 'network'",
-  });
+const networkSchema = string();
 
-export const signTransactionsSchema = Joi.object<SignTransactionsParams, true>({
+export const signTransactionsSchema = object({
   network: networkSchema,
-  transactions: Joi.array().required(),
+  transactions: array(),
 });
 
-export const validAccountSchema = Joi.object<{ network: NearNetwork }, true>({
+export const validAccountSchema = object({
   network: networkSchema,
 });
-
-export function validateParams<T>(
-  schema: Joi.ObjectSchema<T>,
-  params: unknown
-): asserts params is T {
-  const { error } = schema.validate(params);
-  if (error) throw error;
-}
