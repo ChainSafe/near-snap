@@ -32,7 +32,9 @@ export async function signTransactions(
       );
       signedTransactions.push(signedTransaction);
     } catch (e) {
-      throw new Error(`Failed to sign transaction`);
+      throw new Error(
+        `Failed to sign transaction because: ${(e as Error).message}`
+      );
     }
   }
 
