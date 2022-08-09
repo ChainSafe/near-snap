@@ -14,8 +14,9 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "yarn run build:snap",
-    "build:snap": "yarn build:snap:bundle && yarn build:snap:eval",
-    "build:snap:bundle": "mm-snap build --src src/index.ts --writeManifest false --manifest false --verboseErrors --stripComments --eval false",
+    "build:snap": "yarn build:snap:bundle && yarn build:snap:postprocess && yarn build:snap:eval",
+    "build:snap:bundle": "mm-snap build --src src/index.ts --sourceMaps true  --writeManifest false --manifest false --verboseErrors --eval false",
+    "build:snap:postprocess": "node ./post-process.js && mm-snap manifest --fix",
     "build:snap:eval": "mm-snap eval -b dist/bundle.js --verboseErrors",
     "watch": "concurrently  --raw --kill-others \"yarn run watch:snap\" \"yarn run serve\"",
     "watch:snap": "mm-snap watch --sourceMaps --src src/index.ts",
@@ -76,6 +77,7 @@
   "dependencies": {
     "@metamask/key-tree": "^4.0.0",
     "deepmerge": "^4.2.2",
-    "near-api-js": "^0.45.1"
+    "near-api-js": "^0.45.1",
+    "superstruct": "^0.16.0"
   }
 }

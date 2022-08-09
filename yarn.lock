@@ -1344,6 +1344,7 @@ __metadata:
     sinon: ^9.0.1
     sinon-chai: ^3.5.0
     strict-event-emitter-types: ^2.0.0
+    superstruct: ^0.16.0
     ts-node: ^8.6.2
     typescript: 4.7.3
   languageName: unknown
@@ -9304,6 +9305,13 @@ __metadata:
   dependencies:
     minimist: ^1.1.0
   checksum: 8ecdfa682e50b98272b283f1094ae2f82e5c84b258fd3ac6e47a69149059bd786ef6586305243a5b60746ce23e3e738de7ed8277c76f3363fa351bbfe9c71f37
+  languageName: node
+  linkType: hard
+
+"superstruct@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "superstruct@npm:0.16.0"
+  checksum: a6ea008009cc03cdae4f91997dcaf2b2b022919d8a570bd99d680c3447a7c9f7cd4214b19115e58c31d75d091ac3b2708095d2af3a742b3838e2520f4cc53847
   languageName: node
   linkType: hard
 
