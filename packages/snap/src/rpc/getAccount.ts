@@ -7,5 +7,5 @@ export async function getAccount(
   network: NearNetwork
 ): Promise<string> {
   const keyPair = await getKeyPair(wallet, network);
-  return keyPair.getPublicKey().toString();
+  return Buffer.from(keyPair.getPublicKey().data).toString("hex");
 }

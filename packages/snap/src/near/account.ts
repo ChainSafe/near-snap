@@ -3,6 +3,7 @@ import {
   JsonBIP44CoinTypeNode,
 } from "@metamask/key-tree";
 import { SnapProvider } from "@metamask/snap-types";
+import bs58 from "bs58";
 import { KeyPair } from "near-api-js";
 import { NearNetwork } from "../interfaces";
 
@@ -24,7 +25,5 @@ export async function getKeyPair(
 
   const addressKey0 = await deriveNearAddress(0);
 
-  const keyPair = KeyPair.fromString(addressKey0.privateKey);
-
-  return keyPair;
+  return KeyPair.fromString(bs58.encode(Buffer.from(addressKey0.privateKey)));
 }
