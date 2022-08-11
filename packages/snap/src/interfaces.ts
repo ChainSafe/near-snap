@@ -1,7 +1,10 @@
-import { transactions } from "near-api-js";
+export type ActionJson = { enum: string } & object;
 
 export interface SignTransactionsParams {
-  transactions: transactions.Transaction[];
+  transactions: Array<{
+    receiverId: string;
+    actions: ActionJson[];
+  }>;
   network: NearNetwork;
 }
 

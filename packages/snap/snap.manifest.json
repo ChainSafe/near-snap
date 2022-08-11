@@ -7,7 +7,7 @@
     "url": "git+https://github.com/chainsafe/near-snap.git"
   },
   "source": {
-    "shasum": "vlYln+TxLp8XqyH2IIzpTS+w9OqhFkMsYFV6Uvo1Sl8=",
+    "shasum": "VqVDe79i7B3K0Axn1FkX35MEUJXA+L3TXQ0Bm51O+ts=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",

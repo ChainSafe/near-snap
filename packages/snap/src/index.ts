@@ -16,6 +16,7 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
       return await getAccount(wallet, request.params.network);
     case Methods.SignTransaction:
       assert(request.params, signTransactionsSchema);
+      // TODO: improve mapping from JSON to action and vice versa (required for milestone 2)
       return await signTransactions(wallet, request.params);
 
     default:
