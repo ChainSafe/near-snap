@@ -1,10 +1,12 @@
 export type ActionJson = { enum: string } & object;
 
+export interface TransactionJson {
+  receiverId: string;
+  actions: ActionJson[];
+}
+
 export interface SignTransactionsParams {
-  transactions: Array<{
-    receiverId: string;
-    actions: ActionJson[];
-  }>;
+  transactions: TransactionJson[];
   network: NearNetwork;
 }
 
