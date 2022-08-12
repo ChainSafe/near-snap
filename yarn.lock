@@ -1329,6 +1329,7 @@ __metadata:
     "@metamask/key-tree": ^4.0.0
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
+    "@types/bn.js": ^5
     "@types/chai": ^4.2.10
     "@types/chai-as-promised": ^7.1.5
     "@types/mocha": ^7.0.2
@@ -1336,6 +1337,7 @@ __metadata:
     "@types/sinon-chai": ^3.2.3
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
+    bn.js: ^5.2.1
     bs58: ^5.0.0
     chai: ^4.2.0
     chai-as-promised: ^7.1.1
@@ -2402,7 +2404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/bn.js@npm:^5.1.0":
+"@types/bn.js@npm:^5, @types/bn.js@npm:^5.1.0":
   version: 5.1.0
   resolution: "@types/bn.js@npm:5.1.0"
   dependencies:
