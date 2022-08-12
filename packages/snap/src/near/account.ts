@@ -25,5 +25,7 @@ export async function getKeyPair(
 
   const addressKey0 = await deriveNearAddress(0);
 
-  return KeyPair.fromString(bs58.encode(Buffer.from(addressKey0.privateKey)));
+  return KeyPair.fromString(
+    "ed25519:" + bs58.encode(Buffer.from(addressKey0.privateKey))
+  );
 }
