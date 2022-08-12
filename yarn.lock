@@ -1330,6 +1330,7 @@ __metadata:
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
     "@types/chai": ^4.2.10
+    "@types/chai-as-promised": ^7.1.5
     "@types/mocha": ^7.0.2
     "@types/sinon": ^7.5.2
     "@types/sinon-chai": ^3.2.3
@@ -1337,6 +1338,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.27.1
     bs58: ^5.0.0
     chai: ^4.2.0
+    chai-as-promised: ^7.1.1
     concurrently: ^5.1.0
     deepmerge: ^4.2.2
     eslint: ^8.17.0
@@ -2406,6 +2408,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 04c6705445f8588ca54bb1e28bee6a1e3e97fa87551cde45b6f7e1d856d394ae0d36d3c75f11388062562dc0a6f4b4e0d5282ccfbe463d472589f9d1cc95ebd5
+  languageName: node
+  linkType: hard
+
+"@types/chai-as-promised@npm:^7.1.5":
+  version: 7.1.5
+  resolution: "@types/chai-as-promised@npm:7.1.5"
+  dependencies:
+    "@types/chai": "*"
+  checksum: 3c8ef2872e55380be045d071a5a7cbe1647578b7e2836c0d38b2e263ffb04e5c361cdd6b1f344b93a1d2044c7eced217e2930eaa36d737fb29912ed928fc6d8b
   languageName: node
   linkType: hard
 
@@ -3740,6 +3751,17 @@ __metadata:
   version: 1.0.4
   resolution: "cbor-sync@npm:1.0.4"
   checksum: e50a092204b1be80189ef6c02efba38afa233de0c6dc6acdb8d3243f90dbcd79a5f7fa79066c22b752e1428641efb97431949222ddbf986ec73e36d6a4bf7f6d
+  languageName: node
+  linkType: hard
+
+"chai-as-promised@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "chai-as-promised@npm:7.1.1"
+  dependencies:
+    check-error: ^1.0.2
+  peerDependencies:
+    chai: ">= 2.1.2 < 5"
+  checksum: e25a602c3a8cd0b97ce6b0c7ddaaf4bd8517941da9f44dc65262c5268ea463f634dc495cdef6a21eaeffdb5022b6f4c3781027b8308273b7fff089c605abf6aa
   languageName: node
   linkType: hard
 

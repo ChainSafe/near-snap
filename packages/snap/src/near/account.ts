@@ -16,6 +16,7 @@ export async function getKeyPair(
   wallet: SnapProvider,
   network: NearNetwork
 ): Promise<KeyPair> {
+  // TODO: fix after metamask implement ed25519 entropy - https://github.com/MetaMask/snaps-skunkworks/pull/671
   const bip44Node = (await wallet.request({
     method: `snap_getBip44Entropy_${nearNetwork[network]}`,
     params: [],
