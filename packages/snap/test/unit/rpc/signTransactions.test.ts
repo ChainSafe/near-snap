@@ -66,6 +66,6 @@ describe("Test rpc handler function: signTransactions", function () {
           },
         ],
       })
-    ).to.rejectedWith();
+    ).to.rejectedWith("Failed to sign transaction because: Unknown action: send");
   });
 });
