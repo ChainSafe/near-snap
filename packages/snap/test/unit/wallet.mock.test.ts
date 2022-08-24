@@ -8,7 +8,6 @@ export class WalletMock {
     snap_confirm: sinon.stub(),
     snap_getBip44Entropy_1: sinon.stub(),
     snap_getBip44Entropy_397: sinon.stub(),
-    snap_manageState: sinon.stub(),
   };
 
   /**
