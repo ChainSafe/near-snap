@@ -3,6 +3,8 @@ export type ActionJson = { enum: string } & object;
 export interface TransactionJson {
   receiverId: string;
   actions: ActionJson[];
+  nonce: number;
+  recentBlockHash: string;
 }
 
 export interface SignTransactionsParams {

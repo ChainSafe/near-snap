@@ -6,6 +6,7 @@ import {
   Describe,
   enums,
   string,
+  number,
 } from "superstruct";
 import {
   NearNetwork,
@@ -26,6 +27,8 @@ export const networkSchema: Describe<NearNetwork> = enums([
 const transaction: Describe<TransactionJson> = object({
   receiverId: string(),
   actions: array(any()),
+  nonce: number(),
+  recentBlockHash: string(),
 });
 
 export const signTransactionsSchema: Describe<SignTransactionsParams> = object({

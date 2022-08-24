@@ -1,4 +1,4 @@
-import { transactions, InMemorySigner, providers, utils } from "near-api-js";
+import { transactions, InMemorySigner, utils } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { SignedTransaction } from "near-api-js/lib/transaction";
 import { SnapProvider } from "@metamask/snap-types";
@@ -23,29 +23,15 @@ export async function signTransactions(
 
   const signer = new InMemorySigner(keystore);
 
-  const provider = new providers.JsonRpcProvider({
-    url: `https://rpc.${params.network}.near.org`,
-  });
-
-  // fetch data from chain - the latest block hash and latest nonce of account
-  const accessKey = await provider.query(
-    `access_key/${Buffer.from(keyPair.getPublicKey().data).toString(
-      "hex"
-    )}/${keyPair.getPublicKey().toString()}`,
-    ""
-  );
-  let nonce = ++(accessKey as unknown as { nonce: number }).nonce;
-  const recentBlockHash = utils.serialize.base_decode(accessKey.block_hash);
-
   for (const transactionData of transactionsArray) {
     try {
       const transaction = transactions.createTransaction(
         accountId,
         keyPair.getPublicKey(),
         transactionData.receiverId,
-        nonce++,
+        transactionData.nonce,
         mapActions(transactionData.actions),
-        recentBlockHash
+        utils.serialize.base_decode(transactionData.recentBlockHash)
       );
       const signedTransaction = await transactions.signTransaction(
         transaction,

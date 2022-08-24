@@ -27,7 +27,8 @@ describe("Test rpc handler function: signTransactions", function () {
         enum: "transfer",
       },
     ];
-
+    const nonce = 1;
+    const recentBlockHash = "8VuXKpfKMeN642QfhURH2Sq7WPCFypubsuDiSx36vfkw"
     const result = await signTransactions(walletStub, {
       network: "testnet",
       transactions: [
@@ -35,6 +36,8 @@ describe("Test rpc handler function: signTransactions", function () {
           receiverId:
             "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
           actions,
+          nonce,
+          recentBlockHash
         },
       ],
     });
@@ -54,7 +57,8 @@ describe("Test rpc handler function: signTransactions", function () {
         enum: "send",
       },
     ];
-
+    const nonce = 1;
+    const recentBlockHash = new Uint8Array(32).toString()
     await expect(
       signTransactions(walletStub, {
         network: "testnet",
@@ -63,6 +67,8 @@ describe("Test rpc handler function: signTransactions", function () {
             receiverId:
               "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
             actions,
+            nonce,
+            recentBlockHash
           },
         ],
       })
