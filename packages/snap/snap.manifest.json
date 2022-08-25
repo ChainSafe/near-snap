@@ -7,7 +7,7 @@
     "url": "git+https://github.com/chainsafe/near-snap.git"
   },
   "source": {
-    "shasum": "pxO5neJI8g9fDDLg0ayjC50C37z+N6GkZ+/ZJSfy5Jo=",
+    "shasum": "TZjkobSObTXi3C8YAeAxa/sxvwUeMJmhVSdC4t6PvAM=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",
@@ -17,10 +17,9 @@
     }
   },
   "initialPermissions": {
-    "endowment:network-access": {},
     "snap_confirm": {},
-    "snap_getBip44Entropy_397": {},
-    "snap_manageState": {}
+    "snap_getBip44Entropy_1": {},
+    "snap_getBip44Entropy_397": {}
   },
   "manifestVersion": "0.1"
 }

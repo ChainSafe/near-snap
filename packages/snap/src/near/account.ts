@@ -3,6 +3,7 @@ import {
   JsonBIP44CoinTypeNode,
 } from "@metamask/key-tree";
 import { SnapProvider } from "@metamask/snap-types";
+import bs58 from "bs58";
 import { KeyPair } from "near-api-js";
 import { NearNetwork } from "../interfaces";
 
@@ -15,6 +16,7 @@ export async function getKeyPair(
   wallet: SnapProvider,
   network: NearNetwork
 ): Promise<KeyPair> {
+  // TODO: fix after metamask implement ed25519 entropy - https://github.com/MetaMask/snaps-skunkworks/pull/671
   const bip44Node = (await wallet.request({
     method: `snap_getBip44Entropy_${nearNetwork[network]}`,
     params: [],
@@ -24,7 +26,7 @@ export async function getKeyPair(
 
   const addressKey0 = await deriveNearAddress(0);
 
-  const keyPair = KeyPair.fromString(addressKey0.privateKey);
-
-  return keyPair;
+  return KeyPair.fromString(
+    "ed25519:" + bs58.encode(Buffer.from(addressKey0.privateKey))
+  );
 }

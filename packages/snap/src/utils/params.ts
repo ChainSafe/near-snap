@@ -1,6 +1,18 @@
-import { object, any, array, defaulted, Describe, enums } from "superstruct";
-import { transactions } from "near-api-js";
-import { NearNetwork, SignTransactionsParams } from "../interfaces";
+import {
+  object,
+  any,
+  array,
+  defaulted,
+  Describe,
+  enums,
+  string,
+  number,
+} from "superstruct";
+import {
+  NearNetwork,
+  SignTransactionsParams,
+  TransactionJson,
+} from "../interfaces";
 
 export const networkSchemaDefaulted: Describe<NearNetwork> = defaulted(
   enums(["testnet", "mainnet"]),
@@ -12,8 +24,12 @@ export const networkSchema: Describe<NearNetwork> = enums([
   "mainnet",
 ]);
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const transaction: Describe<transactions.Transaction> = any();
+const transaction: Describe<TransactionJson> = object({
+  receiverId: string(),
+  actions: array(any()),
+  nonce: number(),
+  recentBlockHash: string(),
+});
 
 export const signTransactionsSchema: Describe<SignTransactionsParams> = object({
   network: networkSchema,

@@ -1329,13 +1329,18 @@ __metadata:
     "@metamask/key-tree": ^4.0.0
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
+    "@types/bn.js": ^5
     "@types/chai": ^4.2.10
+    "@types/chai-as-promised": ^7.1.5
     "@types/mocha": ^7.0.2
     "@types/sinon": ^7.5.2
     "@types/sinon-chai": ^3.2.3
     "@typescript-eslint/eslint-plugin": ^5.27.1
     "@typescript-eslint/parser": ^5.27.1
+    bn.js: ^5.2.1
+    bs58: ^5.0.0
     chai: ^4.2.0
+    chai-as-promised: ^7.1.1
     concurrently: ^5.1.0
     deepmerge: ^4.2.2
     eslint: ^8.17.0
@@ -2399,12 +2404,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/bn.js@npm:^5.1.0":
+"@types/bn.js@npm:^5, @types/bn.js@npm:^5.1.0":
   version: 5.1.0
   resolution: "@types/bn.js@npm:5.1.0"
   dependencies:
     "@types/node": "*"
   checksum: 04c6705445f8588ca54bb1e28bee6a1e3e97fa87551cde45b6f7e1d856d394ae0d36d3c75f11388062562dc0a6f4b4e0d5282ccfbe463d472589f9d1cc95ebd5
+  languageName: node
+  linkType: hard
+
+"@types/chai-as-promised@npm:^7.1.5":
+  version: 7.1.5
+  resolution: "@types/chai-as-promised@npm:7.1.5"
+  dependencies:
+    "@types/chai": "*"
+  checksum: 3c8ef2872e55380be045d071a5a7cbe1647578b7e2836c0d38b2e263ffb04e5c361cdd6b1f344b93a1d2044c7eced217e2930eaa36d737fb29912ed928fc6d8b
   languageName: node
   linkType: hard
 
@@ -3201,6 +3215,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"base-x@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "base-x@npm:4.0.0"
+  checksum: 0cb47c94535144ab138f70bb5aa7e6e03049ead88615316b62457f110fc204f2c3baff5c64a1c1b33aeb068d79a68092c08a765c7ccfa133eee1e70e4c6eb903
+  languageName: node
+  linkType: hard
+
 "base58check@npm:^2.0.0":
   version: 2.0.0
   resolution: "base58check@npm:2.0.0"
@@ -3566,6 +3587,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bs58@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "bs58@npm:5.0.0"
+  dependencies:
+    base-x: ^4.0.0
+  checksum: 0d1b05630b11db48039421b5975cb2636ae0a42c62f770eec257b2e5c7d94cb5f015f440785f3ec50870a6e9b1132b35bd0a17c7223655b22229f24b2a3491d1
+  languageName: node
+  linkType: hard
+
 "bs58check@npm:^2.1.2":
   version: 2.1.2
   resolution: "bs58check@npm:2.1.2"
@@ -3723,6 +3753,17 @@ __metadata:
   version: 1.0.4
   resolution: "cbor-sync@npm:1.0.4"
   checksum: e50a092204b1be80189ef6c02efba38afa233de0c6dc6acdb8d3243f90dbcd79a5f7fa79066c22b752e1428641efb97431949222ddbf986ec73e36d6a4bf7f6d
+  languageName: node
+  linkType: hard
+
+"chai-as-promised@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "chai-as-promised@npm:7.1.1"
+  dependencies:
+    check-error: ^1.0.2
+  peerDependencies:
+    chai: ">= 2.1.2 < 5"
+  checksum: e25a602c3a8cd0b97ce6b0c7ddaaf4bd8517941da9f44dc65262c5268ea463f634dc495cdef6a21eaeffdb5022b6f4c3781027b8308273b7fff089c605abf6aa
   languageName: node
   linkType: hard
 
