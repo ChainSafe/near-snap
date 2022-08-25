@@ -1327,6 +1327,7 @@ __metadata:
   resolution: "@chainsafe/near-snap@workspace:packages/snap"
   dependencies:
     "@metamask/key-tree": ^4.0.0
+    "@metamask/providers": ^9.1.0
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
     "@types/bn.js": ^5
@@ -2127,6 +2128,26 @@ __metadata:
     pump: ^3.0.0
     webextension-polyfill-ts: ^0.25.0
   checksum: d989188811452a68730f0f3fd6fc16f3f03ab0427defa796296992739dd00e63a7ad95a17647a7fa33369fc0a624a135d37d6470e0584a9f4779df7adec611cb
+  languageName: node
+  linkType: hard
+
+"@metamask/providers@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "@metamask/providers@npm:9.1.0"
+  dependencies:
+    "@metamask/object-multiplex": ^1.1.0
+    "@metamask/safe-event-emitter": ^2.0.0
+    "@types/chrome": ^0.0.136
+    detect-browser: ^5.2.0
+    eth-rpc-errors: ^4.0.2
+    extension-port-stream: ^2.0.1
+    fast-deep-equal: ^2.0.1
+    is-stream: ^2.0.0
+    json-rpc-engine: ^6.1.0
+    json-rpc-middleware-stream: ^3.0.0
+    pump: ^3.0.0
+    webextension-polyfill-ts: ^0.25.0
+  checksum: b2874b62c920059e34f88cda7c2f2efdf0eadf5e46ed0e6c92b5709b250a84847c8f8cb7f78065faa90035f8d53b717aacd4476bc6473fbd7cfd39b9d355c445
   languageName: node
   linkType: hard
 

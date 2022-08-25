@@ -1,20 +1,27 @@
 import chai, { expect } from "chai";
+import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import { mockSnapProvider } from "../wallet.mock.test";
 import { getAccount } from "../../../src/rpc/getAccount";
-import { bip44Entropy1Node, bip44Entropy397Node } from "../near/bip44Entropy.mock";
+import {
+  bip44Entropy1Node,
+  bip44Entropy397Node,
+} from "../near/bip44Entropy.mock";
+import { mockSnapProvider } from "../wallet.stub";
 
 chai.use(sinonChai);
 
 describe("Test rpc handler function: getAccount", function () {
-  const walletStub = mockSnapProvider();
+  const sanbox = sinon.createSandbox();
+  const walletStub = mockSnapProvider(sanbox);
 
   afterEach(function () {
-    walletStub.reset();
+    sanbox.reset();
   });
 
   it("should return valid address for mainnet", async function () {
-    walletStub.rpcStubs.snap_getBip44Entropy_397.resolves(bip44Entropy397Node);
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_397"))
+      .resolves(bip44Entropy397Node);
 
     const account = await getAccount(walletStub, "mainnet");
 
@@ -24,7 +31,9 @@ describe("Test rpc handler function: getAccount", function () {
   });
 
   it("should return valid address for testnet", async function () {
-    walletStub.rpcStubs.snap_getBip44Entropy_1.resolves(bip44Entropy1Node);
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
+      .resolves(bip44Entropy1Node);
 
     const account = await getAccount(walletStub, "testnet");
 

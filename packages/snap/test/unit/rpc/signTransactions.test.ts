@@ -2,7 +2,8 @@ import chai, { expect } from "chai";
 import sinonChai from "sinon-chai";
 import { utils } from "near-api-js";
 import chaiAsPromised from "chai-as-promised";
-import { mockSnapProvider } from "../wallet.mock.test";
+import sinon from "sinon";
+import { mockSnapProvider } from "../wallet.stub";
 import { signTransactions } from "../../../src/rpc/signTransactions";
 import { bip44Entropy1Node } from "../near/bip44Entropy.mock";
 
@@ -10,14 +11,17 @@ chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
 describe("Test rpc handler function: signTransactions", function () {
-  const walletStub = mockSnapProvider();
+  const sandbox = sinon.createSandbox();
+  const walletStub = mockSnapProvider(sandbox);
 
   afterEach(function () {
-    walletStub.reset();
+    sandbox.reset();
   });
 
   it("should return valid transactions for testnet", async function () {
-    walletStub.rpcStubs.snap_getBip44Entropy_1.resolves(bip44Entropy1Node);
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
+      .resolves(bip44Entropy1Node);
 
     const actions = [
       {
@@ -28,7 +32,7 @@ describe("Test rpc handler function: signTransactions", function () {
       },
     ];
     const nonce = 1;
-    const recentBlockHash = "8VuXKpfKMeN642QfhURH2Sq7WPCFypubsuDiSx36vfkw"
+    const recentBlockHash = "8VuXKpfKMeN642QfhURH2Sq7WPCFypubsuDiSx36vfkw";
     const result = await signTransactions(walletStub, {
       network: "testnet",
       transactions: [
@@ -37,7 +41,7 @@ describe("Test rpc handler function: signTransactions", function () {
             "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
           actions,
           nonce,
-          recentBlockHash
+          recentBlockHash,
         },
       ],
     });
@@ -47,7 +51,9 @@ describe("Test rpc handler function: signTransactions", function () {
   });
 
   it("should fail on wrong action", async function () {
-    walletStub.rpcStubs.snap_getBip44Entropy_1.resolves(bip44Entropy1Node);
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
+      .resolves(bip44Entropy1Node);
 
     const actions = [
       {
@@ -58,7 +64,7 @@ describe("Test rpc handler function: signTransactions", function () {
       },
     ];
     const nonce = 1;
-    const recentBlockHash = new Uint8Array(32).toString()
+    const recentBlockHash = new Uint8Array(32).toString();
     await expect(
       signTransactions(walletStub, {
         network: "testnet",
@@ -68,10 +74,12 @@ describe("Test rpc handler function: signTransactions", function () {
               "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
             actions,
             nonce,
-            recentBlockHash
+            recentBlockHash,
           },
         ],
       })
-    ).to.rejectedWith("Failed to sign transaction because: Unknown action: send");
+    ).to.rejectedWith(
+      "Failed to sign transaction because: Unknown action: send"
+    );
   });
 });
