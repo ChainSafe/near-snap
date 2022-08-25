@@ -1356,16 +1356,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chainsafe/nearsnap-adapter@workspace:packages/adapter":
-  version: 0.0.0-use.local
-  resolution: "@chainsafe/nearsnap-adapter@workspace:packages/adapter"
-  dependencies:
-    "@types/node": ^17.0.36
-    eslint: ^8.17.0
-    typescript: 4.7.3
-  languageName: unknown
-  linkType: soft
-
 "@chainsafe/strip-comments@npm:^1.0.7":
   version: 1.0.7
   resolution: "@chainsafe/strip-comments@npm:1.0.7"
