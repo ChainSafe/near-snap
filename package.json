@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "private": true,
   "author": "ChainSafe <info@chainsafe.io>",
   "license": "(MIT)",
   "packageManager": "yarn@3.2.1",
