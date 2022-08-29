@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.1](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.0...near-snap-v1.0.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* prepublish fix ([#13](https://github.com/ChainSafe/near-snap/issues/13)) ([1ed6653](https://github.com/ChainSafe/near-snap/commit/1ed6653760d26ce926bfecf97503c894f7555d34))
+
+
+### Reverts
+
+* "chore(main): release near-snap 1.0.1" ([#16](https://github.com/ChainSafe/near-snap/issues/16)) ([a73fb33](https://github.com/ChainSafe/near-snap/commit/a73fb333b32c9f2548aa3d91ab127750f520b21a))
+
 ## 1.0.0 (2022-08-25)
 
 
