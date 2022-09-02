@@ -11,9 +11,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "build:snap": "yarn workspace near-snap build",
-    "build:adapter": "yarn workspace @chainsafe/nearsnap-adapter build",
-    "start:snap": "yarn workspace near-snap serve",
+    "build:snap": "yarn workspace @chainsafe/near-snap build",
+    "start:snap": "yarn workspace @chainsafe/near-snap serve",
     "build": "yarn workspaces foreach -vpt run build",
     "test": "yarn workspaces foreach -vpt run test",
     "lint": "yarn workspaces foreach -vpt run lint",
@@ -29,5 +28,8 @@
     "eslint": "^8.17.0",
     "eslint-plugin-prettier": "^4.0.0",
     "typescript": "4.7.3"
+  },
+  "dependencies": {
+    "near-wallet-selector": "^2.1.0"
   }
 }

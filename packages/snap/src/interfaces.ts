@@ -1,8 +1,9 @@
-export type ActionJson = { enum: string } & object;
+import {Action} from "near-wallet-selector" 
 
+export type ActionJson = { enum: string } & object;
 export interface TransactionJson {
   receiverId: string;
-  actions: ActionJson[];
+  actions: Action[];
   nonce: number;
   recentBlockHash: string;
 }

@@ -1330,6 +1330,7 @@ __metadata:
     "@metamask/providers": ^9.1.0
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
+    "@near-wallet-selector/wallet-utils": ^6.0.1
     "@types/bn.js": ^5
     "@types/chai": ^4.2.10
     "@types/chai-as-promised": ^7.1.5
@@ -1938,6 +1939,62 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ledgerhq/devices@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@ledgerhq/devices@npm:7.0.0"
+  dependencies:
+    "@ledgerhq/errors": ^6.10.1
+    "@ledgerhq/logs": ^6.10.0
+    rxjs: 6
+    semver: ^7.3.5
+  checksum: 38fb57f5d7223be96f51fba48c8c3d237c8c7dc503098d444deab2588f9e9cd2d5938eca9d91f6a61b0b367663d21a2f360be85b5cb350108b6ec723e6fe0f46
+  languageName: node
+  linkType: hard
+
+"@ledgerhq/errors@npm:^6.10.1":
+  version: 6.10.1
+  resolution: "@ledgerhq/errors@npm:6.10.1"
+  checksum: 0528e25adb02c3b7a535f426235ce1a1cf89d79052d1b9e5383c390d46ad062a3d38abf14ae48433f2f96fbaaa35d86bcc643a4732ff78c61e6be4f1a26b3429
+  languageName: node
+  linkType: hard
+
+"@ledgerhq/hw-transport-webhid@npm:^6.20.0":
+  version: 6.27.3
+  resolution: "@ledgerhq/hw-transport-webhid@npm:6.27.3"
+  dependencies:
+    "@ledgerhq/devices": ^7.0.0
+    "@ledgerhq/errors": ^6.10.1
+    "@ledgerhq/hw-transport": ^6.27.3
+    "@ledgerhq/logs": ^6.10.1-nightly.0
+  checksum: 96f245573fa8c6f21532c9901bd11552e709c3ec518984f477fb7db0e6929754af5cab97d304c59cd1511c2102870fb773889216e8f87d022a049735312bf1bb
+  languageName: node
+  linkType: hard
+
+"@ledgerhq/hw-transport@npm:^6.20.0, @ledgerhq/hw-transport@npm:^6.27.3":
+  version: 6.27.3
+  resolution: "@ledgerhq/hw-transport@npm:6.27.3"
+  dependencies:
+    "@ledgerhq/devices": ^7.0.0
+    "@ledgerhq/errors": ^6.10.1
+    events: ^3.3.0
+  checksum: cee2f68ebc39e42716b28459c64d426063995fcd1dbf4f86571b673a0355f82354d5911634e8140a74dc0707429ffbb420ec9818c89024f3550a81a4d0dee40b
+  languageName: node
+  linkType: hard
+
+"@ledgerhq/logs@npm:^6.10.0":
+  version: 6.10.0
+  resolution: "@ledgerhq/logs@npm:6.10.0"
+  checksum: adf7c8c9a2b7ca90723d63d9e2714f3454347e357df63fbbc206b7c2897d376f4206eef1cc1c6dda4eb2b62461c61d9cc49192d7fac4cf85d8a1c24b4da77027
+  languageName: node
+  linkType: hard
+
+"@ledgerhq/logs@npm:^6.10.1-nightly.0":
+  version: 6.10.1-nightly.0
+  resolution: "@ledgerhq/logs@npm:6.10.1-nightly.0"
+  checksum: 7ece705d0957b48a055b91e499b2509c4b365cbdb60b1d086367fd2de65441500e8ad43560b3e3fd0c88ca51fbc1a546b4cddea6532783b5353fdb5f85f56c14
+  languageName: node
+  linkType: hard
+
 "@metamask/bip39@npm:^4.0.0":
   version: 4.0.0
   resolution: "@metamask/bip39@npm:4.0.0"
@@ -2253,6 +2310,29 @@ __metadata:
   dependencies:
     fast-deep-equal: ^3.1.3
   checksum: dfa9deaff0be1cfa4a2f7881b4ea414b86db8ccb3258ca10bf159c9f37a15110eabc337b508a6ece59344c1da5fd7a89f4fe236a940bb7a59806c79e01351342
+  languageName: node
+  linkType: hard
+
+"@near-wallet-selector/core@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@near-wallet-selector/core@npm:6.0.1"
+  dependencies:
+    rxjs: ^7.5.5
+  peerDependencies:
+    near-api-js: ^0.44.2
+  checksum: c6354866f81928615638eadf2b7ce96716cd059aa5bcb7a48f3f1a2bb84e3a954cf75a50ed730c6ee55fe78324684034a4c52aaa6b2e4ae8b4ba35e2a9d357f8
+  languageName: node
+  linkType: hard
+
+"@near-wallet-selector/wallet-utils@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@near-wallet-selector/wallet-utils@npm:6.0.1"
+  dependencies:
+    "@near-wallet-selector/core": 6.0.1
+    bn.js: ^5.2.0
+  peerDependencies:
+    near-api-js: ^0.44.2
+  checksum: 3d6a5bb341e88bc9c91e32541340fd7531653c05ce171bf592815d92faccb310a57548cfb60ae1124b2a4f979dcc3a978c6ec6961cb9e90f5f2071cd5a44fc62
   languageName: node
   linkType: hard
 
@@ -3329,6 +3409,17 @@ __metadata:
   version: 5.2.1
   resolution: "bn.js@npm:5.2.1"
   checksum: bed3d8bd34ec89dbcf9f20f88bd7d4a49c160fda3b561c7bb227501f974d3e435a48fb9b61bc3de304acab9215a3bda0803f7017ffb4d0016a0c3a740a283caa
+  languageName: node
+  linkType: hard
+
+"borsh@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "borsh@npm:0.6.0"
+  dependencies:
+    bn.js: ^5.2.0
+    bs58: ^4.0.0
+    text-encoding-utf-8: ^1.0.2
+  checksum: 105c90dba351825214956815b50c8b1bbd68e24d9d556f909ccf8fa364e12cb910dafb99e8f3bf9b236192dae2bf37fb4262ec2496d314ef968f3822a878b85b
   languageName: node
   linkType: hard
 
@@ -5458,7 +5549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"events@npm:^3.0.0":
+"events@npm:^3.0.0, events@npm:^3.3.0":
   version: 3.3.0
   resolution: "events@npm:3.3.0"
   checksum: d6b6f2adbccbcda74ddbab52ed07db727ef52e31a61ed26db9feb7dc62af7fc8e060defa65e5f8af9449b86b52cc1a1f6a79f2eafcf4e62add2b7a1fa4a432f6
@@ -6518,6 +6609,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-mobile@npm:^3.0.0":
+  version: 3.1.1
+  resolution: "is-mobile@npm:3.1.1"
+  checksum: ea77399ed292bd712c41b89826811d595575516cce2a53c67b2920ae60a3f2da8e32f9dc58e3a7d50d1a5394eac9fc4b1c55cf480dba6c47c2c50cc330f4a24e
+  languageName: node
+  linkType: hard
+
 "is-nan@npm:^1.2.1":
   version: 1.3.2
   resolution: "is-nan@npm:1.3.2"
@@ -6697,7 +6795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-tokens@npm:^4.0.0":
+"js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
   checksum: e248708d377aa058eacf2037b07ded847790e6de892bbad3dac0abba2e759cb9f121b00099a65195616badcb6eca8d14d975cb3e89eb1cfda644756402c8aeed
@@ -7069,6 +7167,17 @@ __metadata:
   dependencies:
     chalk: ^2.4.2
   checksum: d11582a1b499b76aa1415988234ad54d9fb3f888f4cb4186cbc20ee4d314ac4b5f3d9fe9edd828748d2c0d372df2ea9f5dfd89100510988a8ce5ddf483ae015e
+  languageName: node
+  linkType: hard
+
+"loose-envify@npm:^1.1.0":
+  version: 1.4.0
+  resolution: "loose-envify@npm:1.4.0"
+  dependencies:
+    js-tokens: ^3.0.0 || ^4.0.0
+  bin:
+    loose-envify: cli.js
+  checksum: 655d110220983c1a4b9c0c679a2e8016d4b67f6e9c7b5435ff5979ecdb20d0813f4dec0a08674fcbdd4846a3f07edbb50a36811fd37930b94aaa0d9daceb017e
   languageName: node
   linkType: hard
 
@@ -7518,6 +7627,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"near-api-js@npm:0.44.2":
+  version: 0.44.2
+  resolution: "near-api-js@npm:0.44.2"
+  dependencies:
+    bn.js: 5.2.0
+    borsh: ^0.6.0
+    bs58: ^4.0.0
+    depd: ^2.0.0
+    error-polyfill: ^0.1.3
+    http-errors: ^1.7.2
+    js-sha256: ^0.9.0
+    mustache: ^4.0.0
+    node-fetch: ^2.6.1
+    text-encoding-utf-8: ^1.0.2
+    tweetnacl: ^1.0.1
+  checksum: b8fedf4a1e3f7c7b7d0f3742a514b7ca7cfb8dccc89b1c7a06b3a087042f24bf840451c01fa54e0442bf264e768d1332b3a50df1ca256af41d19456341bb1227
+  languageName: node
+  linkType: hard
+
 "near-api-js@npm:^0.45.1":
   version: 0.45.1
   resolution: "near-api-js@npm:0.45.1"
@@ -7534,6 +7662,22 @@ __metadata:
     text-encoding-utf-8: ^1.0.2
     tweetnacl: ^1.0.1
   checksum: aac0d56ad93cec4d339fcb2b2996dc8af4cec462494c854a7a5e030cc1b470ef1d6ff607d74d8b72b5d6d2f40b928458231265e9ef11a124d77346ea6b1bcb32
+  languageName: node
+  linkType: hard
+
+"near-wallet-selector@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "near-wallet-selector@npm:2.1.0"
+  dependencies:
+    "@ledgerhq/hw-transport": ^6.20.0
+    "@ledgerhq/hw-transport-webhid": ^6.20.0
+    "@ledgerhq/logs": ^6.10.0
+    bn.js: ^5.2.0
+    is-mobile: ^3.0.0
+    near-api-js: 0.44.2
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: c93de859236a5cda7b127deab99f6202245a2de434784baec38bc2c899a8ae719510b778dfeb9d0de09e45f5319ee32f8e1f1a24dae4a21c45e96728877254b4
   languageName: node
   linkType: hard
 
@@ -8355,6 +8499,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react-dom@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    scheduler: ^0.20.2
+  peerDependencies:
+    react: 17.0.2
+  checksum: 51abbcb72450fe527ebf978c3bc989ba266630faaa53f47a2fae5392369729e8de62b2e4683598cbe651ea7873cd34ec7d5127e2f50bf4bfe6bd0c3ad9bddcb0
+  languageName: node
+  linkType: hard
+
+"react@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: 07ae8959acf1596f0550685102fd6097d461a54a4fd46a50f88a0cd7daaa97fdd6415de1dcb4bfe0da6aa43221a6746ce380410fa848acc60f8ac41f6649c148
+  languageName: node
+  linkType: hard
+
 "read-only-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "read-only-stream@npm:2.0.0"
@@ -8723,6 +8890,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.27.1
     eslint: ^8.17.0
     eslint-plugin-prettier: ^4.0.0
+    near-wallet-selector: ^2.1.0
     typescript: 4.7.3
   languageName: unknown
   linkType: soft
@@ -8743,12 +8911,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.5.2":
+"rxjs@npm:6, rxjs@npm:^6.5.2":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
     tslib: ^1.9.0
   checksum: e556a13a9aa89395e5c9d825eabcfa325568d9c9990af720f3f29f04a888a3b854f25845c2b55875d875381abcae2d8100af9cacdc57576e7ed6be030a01d2fe
+  languageName: node
+  linkType: hard
+
+"rxjs@npm:^7.5.5":
+  version: 7.5.6
+  resolution: "rxjs@npm:7.5.6"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: d8077fb4a06c05f52fcc974ab9884d163924b8085c661c92030a522920510bf0c75583caee70409ab11992320c31f562f5402afe8b81255370c09773209fec5c
   languageName: node
   linkType: hard
 
@@ -8779,6 +8956,16 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: 7e3c8b2e88a1841c9671094bbaeebd94448111dd90a81a1f606f3f67708a6ec57763b3b47f06da09fc6054193e0e6709e77325415dc8422b04497a8070fa02d4
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.20.2":
+  version: 0.20.2
+  resolution: "scheduler@npm:0.20.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: b0982e4b0f34f4ffa4f2f486161c0fd9ce9b88680b045dccbf250eb1aa4fd27413570645455187a83535e2370f5c667a251045547765408492bd883cbe95fcdb
   languageName: node
   linkType: hard
 
@@ -9574,7 +9761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: eb19bda3ae545b03caea6a244b34593468e23d53b26bf8649fbc20fce43e9b21a71127fd6d2b9662c0fe48ee6ff668ead48fd00d3b88b2b716b1c12edae25b5d

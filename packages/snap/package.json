@@ -80,6 +80,7 @@
   },
   "dependencies": {
     "@metamask/key-tree": "^4.0.0",
+    "@near-wallet-selector/wallet-utils": "^6.0.1",
     "bs58": "^5.0.0",
     "deepmerge": "^4.2.2",
     "near-api-js": "^0.45.1",
