@@ -5,6 +5,8 @@ import { getKeyPair } from "../near/account";
 import { SignTransactionsParams } from "../interfaces";
 import { createAction } from "../utils/createAction";
 import { getAccount } from "./getAccount";
+import { showConfirmationDialog } from "../utils/confirmation";
+import { messageCreator } from "../utils/messageCreator";
 
 export async function signTransactions(
   wallet: SnapProvider,
@@ -22,6 +24,15 @@ export async function signTransactions(
   await keystore.setKey(network, accountId, keyPair);
 
   const signer = new InMemorySigner(keystore);
+
+  //confirmation
+  const confirmation = await showConfirmationDialog(wallet, {
+    description: `It will be signed with address: ${wallet.selectedAddress}`,
+    prompt: `Do you want to sign this message${transactionsArray.length > 1 ? "s" : ""}?`,
+    textAreaContent: messageCreator(transactionsArray)
+  })
+
+  if(!confirmation) return null
 
   for (const transactionData of transactionsArray) {
     try {
