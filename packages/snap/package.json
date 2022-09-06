@@ -84,6 +84,7 @@
     "bs58": "^5.0.0",
     "deepmerge": "^4.2.2",
     "near-api-js": "^0.45.1",
-    "superstruct": "^0.16.0"
+    "superstruct": "^0.16.0",
+    "tweetnacl": "^1.0.3"
   }
 }

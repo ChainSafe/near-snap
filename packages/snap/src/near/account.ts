@@ -5,6 +5,7 @@ import {
 import { SnapProvider } from "@metamask/snap-types";
 import bs58 from "bs58";
 import { KeyPair } from "near-api-js";
+import nacl from "tweetnacl";
 import { NearNetwork } from "../interfaces";
 
 const nearNetwork = {
@@ -27,6 +28,10 @@ export async function getKeyPair(
   const addressKey0 = await deriveNearAddress(0);
 
   return KeyPair.fromString(
-    "ed25519:" + bs58.encode(Buffer.from(addressKey0.privateKey))
+    bs58.encode(
+      nacl.sign.keyPair.fromSeed(
+        Uint8Array.from(Buffer.from(addressKey0.privateKey.slice(0, 32)))
+      ).secretKey
+    )
   );
 }
