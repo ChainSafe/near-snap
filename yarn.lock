@@ -8754,7 +8754,6 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@chainsafe/eslint-config": ^1.0.0
-    "@near-wallet-selector/core": ^7.0.0
     "@rushstack/eslint-patch": ^1.1.4
     "@types/node": ^17.0.36
     "@typescript-eslint/eslint-plugin": ^5.27.1
