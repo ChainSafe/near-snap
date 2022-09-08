@@ -1,6 +1,5 @@
-import {Action} from "near-wallet-selector" 
+import { Action } from "@near-wallet-selector/core";
 
-export type ActionJson = { enum: string } & object;
 export interface TransactionJson {
   receiverId: string;
   actions: Action[];

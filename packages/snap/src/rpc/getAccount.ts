@@ -14,6 +14,6 @@ export async function getAccount(
   const publicKey = keyPair.getPublicKey().toString();
   return {
     accountId,
-    publicKey
-  } 
+    publicKey,
+  };
 }

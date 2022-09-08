@@ -1,6 +1,6 @@
 import { BN } from "bn.js";
 import { utils, transactions } from "near-api-js";
-import type { AddKeyPermission, Action } from "@near-wallet-selector/core";
+import type { Action } from "@near-wallet-selector/core";
 
 // const getAccessKey = (permission: AddKeyPermission) => {
 //   if (permission === "FullAccess") {
@@ -15,7 +15,7 @@ import type { AddKeyPermission, Action } from "@near-wallet-selector/core";
 //   return transactions.functionCallAccessKey(receiverId, methodNames, allowance);
 // };
 
-export const createAction = (action: Action) => {
+export const createAction = (action: Action): transactions.Action => {
   switch (action.type) {
     case "CreateAccount":
       return transactions.createAccount();

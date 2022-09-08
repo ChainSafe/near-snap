@@ -22,7 +22,6 @@ export async function getKeyPair(
     method: `snap_getBip44Entropy_${nearNetwork[network]}`,
     params: [],
   })) as JsonBIP44CoinTypeNode;
-
   const deriveNearAddress = await getBIP44AddressKeyDeriver(bip44Node);
 
   const addressKey0 = await deriveNearAddress(0);

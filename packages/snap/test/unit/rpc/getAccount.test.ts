@@ -25,8 +25,11 @@ describe("Test rpc handler function: getAccount", function () {
 
     const account = await getAccount(walletStub, "mainnet");
 
-    expect(account).to.be.eq(
-      "3336393866646334313564363164656335373631653766633037616631313233"
+    expect(account).to.be.eql(
+      {
+        accountId: '8e4a06da6413537b4c0227ead35ac644667867a459a058f65d90a8ca4983c20c',
+        publicKey: 'ed25519:AaSN3EVag78E3xPSXb1Cr1L5WtMifRryngUNxNAU5afV'
+      }
     );
   });
 
@@ -37,8 +40,11 @@ describe("Test rpc handler function: getAccount", function () {
 
     const account = await getAccount(walletStub, "testnet");
 
-    expect(account).to.be.eq(
-      "3132386337633930653166376133666131613462343439663363383730373338"
+    expect(account).to.be.eql(
+      {
+        accountId: "301c77d9c9ed770eaaa3355a09daea909194191b7b8a8c2352685cf26b0f9884",
+        publicKey: "ed25519:4EokKWyQbsRzk1v1e2jmLC6SAe3f4Fm6PynKxFx5zh71"
+      }
     );
   });
 });
