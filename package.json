@@ -11,9 +11,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "build:snap": "yarn workspace near-snap build",
-    "build:adapter": "yarn workspace @chainsafe/nearsnap-adapter build",
-    "start:snap": "yarn workspace near-snap serve",
+    "build:snap": "yarn workspace @chainsafe/near-snap build",
+    "start:snap": "yarn workspace @chainsafe/near-snap serve",
     "build": "yarn workspaces foreach -vpt run build",
     "test": "yarn workspaces foreach -vpt run test",
     "lint": "yarn workspaces foreach -vpt run lint",

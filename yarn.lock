@@ -1330,6 +1330,8 @@ __metadata:
     "@metamask/providers": ^9.1.0
     "@metamask/snap-types": ^0.18.1
     "@metamask/snaps-cli": ^0.18.1
+    "@near-wallet-selector/core": ^7.0.0
+    "@near-wallet-selector/wallet-utils": ^6.0.1
     "@types/bn.js": ^5
     "@types/chai": ^4.2.10
     "@types/chai-as-promised": ^7.1.5
@@ -1352,6 +1354,7 @@ __metadata:
     strict-event-emitter-types: ^2.0.0
     superstruct: ^0.16.0
     ts-node: ^8.6.2
+    tweetnacl: ^1.0.3
     typescript: 4.7.3
   languageName: unknown
   linkType: soft
@@ -2253,6 +2256,40 @@ __metadata:
   dependencies:
     fast-deep-equal: ^3.1.3
   checksum: dfa9deaff0be1cfa4a2f7881b4ea414b86db8ccb3258ca10bf159c9f37a15110eabc337b508a6ece59344c1da5fd7a89f4fe236a940bb7a59806c79e01351342
+  languageName: node
+  linkType: hard
+
+"@near-wallet-selector/core@npm:6.0.1":
+  version: 6.0.1
+  resolution: "@near-wallet-selector/core@npm:6.0.1"
+  dependencies:
+    rxjs: ^7.5.5
+  peerDependencies:
+    near-api-js: ^0.44.2
+  checksum: c6354866f81928615638eadf2b7ce96716cd059aa5bcb7a48f3f1a2bb84e3a954cf75a50ed730c6ee55fe78324684034a4c52aaa6b2e4ae8b4ba35e2a9d357f8
+  languageName: node
+  linkType: hard
+
+"@near-wallet-selector/core@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@near-wallet-selector/core@npm:7.0.0"
+  dependencies:
+    rxjs: ^7.5.5
+  peerDependencies:
+    near-api-js: ^0.44.2
+  checksum: 873225f1ff53a9112327c3471d022ba7a1479f0ba4ec7e383f24b6d4a90272cdf040a1e2b5d7fb2fb9b607211a8c3987c553b98fd48bfbeeb0064b0f329ef6b7
+  languageName: node
+  linkType: hard
+
+"@near-wallet-selector/wallet-utils@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@near-wallet-selector/wallet-utils@npm:6.0.1"
+  dependencies:
+    "@near-wallet-selector/core": 6.0.1
+    bn.js: ^5.2.0
+  peerDependencies:
+    near-api-js: ^0.44.2
+  checksum: 3d6a5bb341e88bc9c91e32541340fd7531653c05ce171bf592815d92faccb310a57548cfb60ae1124b2a4f979dcc3a978c6ec6961cb9e90f5f2071cd5a44fc62
   languageName: node
   linkType: hard
 
@@ -8752,6 +8789,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rxjs@npm:^7.5.5":
+  version: 7.5.6
+  resolution: "rxjs@npm:7.5.6"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: d8077fb4a06c05f52fcc974ab9884d163924b8085c661c92030a522920510bf0c75583caee70409ab11992320c31f562f5402afe8b81255370c09773209fec5c
+  languageName: node
+  linkType: hard
+
 "safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.0, safe-buffer@npm:^5.1.1, safe-buffer@npm:^5.1.2, safe-buffer@npm:^5.2.0, safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
@@ -9574,7 +9620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: eb19bda3ae545b03caea6a244b34593468e23d53b26bf8649fbc20fce43e9b21a71127fd6d2b9662c0fe48ee6ff668ead48fd00d3b88b2b716b1c12edae25b5d

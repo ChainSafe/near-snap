@@ -5,7 +5,15 @@ import { getKeyPair } from "../near/account";
 export async function getAccount(
   wallet: SnapProvider,
   network: NearNetwork
-): Promise<string> {
+): Promise<{
+  accountId: string;
+  publicKey: string;
+}> {
   const keyPair = await getKeyPair(wallet, network);
-  return Buffer.from(keyPair.getPublicKey().data).toString("hex");
+  const accountId = Buffer.from(keyPair.getPublicKey().data).toString("hex");
+  const publicKey = keyPair.getPublicKey().toString();
+  return {
+    accountId,
+    publicKey,
+  };
 }

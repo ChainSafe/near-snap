@@ -6,6 +6,8 @@ import sinon from "sinon";
 import { mockSnapProvider } from "../wallet.stub";
 import { signTransactions } from "../../../src/rpc/signTransactions";
 import { bip44Entropy1Node } from "../near/bip44Entropy.mock";
+import { FunctionCallAction } from "@near-wallet-selector/core";
+import { SignedTransaction } from "near-api-js/lib/transaction";
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
@@ -22,23 +24,28 @@ describe("Test rpc handler function: signTransactions", function () {
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
       .resolves(bip44Entropy1Node);
-
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_confirm"))
+      .resolves(true);
     const actions = [
       {
-        transfer: {
-          deposit: utils.format.parseNearAmount("0.1"),
-        },
-        enum: "transfer",
-      },
+        type: "FunctionCall",
+        params: {
+          methodName: "addMessage",
+          args: { text: "message" },
+          gas: "30000000000000",
+          deposit: "0"
+        }
+      } as FunctionCallAction
     ];
-    const nonce = 1;
-    const recentBlockHash = "8VuXKpfKMeN642QfhURH2Sq7WPCFypubsuDiSx36vfkw";
+    const nonce = 99525158000008;
+    const recentBlockHash = "5eFLGqqcxEQnHpFoisBnf6HE8RqunTxCz3qP9Zfz28ue";
     const result = await signTransactions(walletStub, {
       network: "testnet",
       transactions: [
         {
           receiverId:
-            "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
+            "guest-book.testnet",
           actions,
           nonce,
           recentBlockHash,
@@ -46,22 +53,26 @@ describe("Test rpc handler function: signTransactions", function () {
       ],
     });
 
-    expect(result).to.not.be.null;
-    expect(result).to.be.an("array");
+    const signedTx = SignedTransaction.decode(Buffer.from(Object.values(result[0][1])))
+
+    expect(signedTx).to.not.be.null;
   });
 
-  it("should fail on wrong action", async function () {
+  it("should fail without confirmation", async function () {
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
       .resolves(bip44Entropy1Node);
 
     const actions = [
       {
-        send: {
-          deposit: utils.format.parseNearAmount("0.1"),
-        },
-        enum: "send",
-      },
+        type: "wrong",
+        params: {
+          methodName: "addMessage",
+          args: { text: "message" },
+          gas: "30000000000000",
+          deposit: "0"
+        }
+      } as unknown as FunctionCallAction
     ];
     const nonce = 1;
     const recentBlockHash = new Uint8Array(32).toString();
@@ -78,8 +89,46 @@ describe("Test rpc handler function: signTransactions", function () {
           },
         ],
       })
-    ).to.rejectedWith(
-      "Failed to sign transaction because: Unknown action: send"
-    );
+    ).to.rejectedWith("Transaction not confirmed");
+
+
+  });
+
+  it("should fail on wrong action", async function () {
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
+      .resolves(bip44Entropy1Node);
+    walletStub.request
+      .withArgs(sinon.match.has("method", "snap_confirm"))
+      .resolves(true);
+
+    const actions = [
+      {
+        type: "wrong",
+        params: {
+          methodName: "addMessage",
+          args: { text: "message" },
+          gas: "30000000000000",
+          deposit: "0"
+        }
+      } as unknown as FunctionCallAction
+    ];
+    const nonce = 1;
+    const recentBlockHash = new Uint8Array(32).toString();
+
+    await expect( signTransactions(walletStub, {
+      network: "testnet",
+      transactions: [
+        {
+          receiverId:
+            "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
+          actions,
+          nonce,
+          recentBlockHash,
+        },
+      ],
+    })
+
+    ).to.rejectedWith("Failed to sign transaction because: Invalid action type")
   });
 });

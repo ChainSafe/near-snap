@@ -22,7 +22,7 @@ describe("Test account function: getKeyPair", function () {
 
     const keypair = await getKeyPair(walletStub, "mainnet");
     expect(keypair.toString()).to.be.eq(
-      "ed25519:2wjSncnSj54evCGqBn1EPsd3aF3wGKszrEKNVTb6rmN6cJnsWgTSW8sZCn4Cydv85jbLBmaHjZpwFf2vfSrgbk3L"
+      "ed25519:2wiQ5A1yzo3jq235NAeHphkcir8DJKsgSYR1mDygP3rSsCd2hGhXF71UjKVEzE3xCg3e8HtKSiEaypySwLnMM61R"
     );
   });
 });
