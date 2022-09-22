@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.2...near-snap-v1.0.3) (2022-09-22)
+
+
+### Bug Fixes
+
+* use ed25519 curve to create key ([#20](https://github.com/ChainSafe/near-snap/issues/20)) ([ab2f72a](https://github.com/ChainSafe/near-snap/commit/ab2f72a0da9db53e18be8fc7bdf1f0553833a1a4))
+
 ## [1.0.2](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.1...near-snap-v1.0.2) (2022-09-08)
 
 
