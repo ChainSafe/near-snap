@@ -3,9 +3,9 @@ import sinon from "sinon";
 import sinonChai from "sinon-chai";
 import { getAccount } from "../../../src/rpc/getAccount";
 import {
-  bip44Entropy1Node,
-  bip44Entropy397Node,
-} from "../near/bip44Entropy.mock";
+  bip32Entropy397Node,
+  bip32Entropy1Node,
+} from "../near/bip32Entropy.mock";
 import { mockSnapProvider } from "../wallet.stub";
 
 chai.use(sinonChai);
@@ -20,31 +20,29 @@ describe("Test rpc handler function: getAccount", function () {
 
   it("should return valid address for mainnet", async function () {
     walletStub.request
-      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_397"))
-      .resolves(bip44Entropy397Node);
+      .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
+      .resolves(bip32Entropy397Node);
 
     const account = await getAccount(walletStub, "mainnet");
 
-    expect(account).to.be.eql(
-      {
-        accountId: '8e4a06da6413537b4c0227ead35ac644667867a459a058f65d90a8ca4983c20c',
-        publicKey: 'ed25519:AaSN3EVag78E3xPSXb1Cr1L5WtMifRryngUNxNAU5afV'
-      }
-    );
+    expect(account).to.be.eql({
+      accountId:
+        "561ddb98e0b17cd42bf3f65b0d5147f7abff7f0d341c08cb89d31de8a788f948",
+      publicKey: "ed25519:6oAUAhAFVFA7YmajkMWw6hZmqH3Lqer2mgvBDh6nLtAj",
+    });
   });
 
   it("should return valid address for testnet", async function () {
     walletStub.request
-      .withArgs(sinon.match.has("method", "snap_getBip44Entropy_1"))
-      .resolves(bip44Entropy1Node);
+      .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
+      .resolves(bip32Entropy1Node);
 
     const account = await getAccount(walletStub, "testnet");
 
-    expect(account).to.be.eql(
-      {
-        accountId: "301c77d9c9ed770eaaa3355a09daea909194191b7b8a8c2352685cf26b0f9884",
-        publicKey: "ed25519:4EokKWyQbsRzk1v1e2jmLC6SAe3f4Fm6PynKxFx5zh71"
-      }
-    );
+    expect(account).to.be.eql({
+      accountId:
+        "7130456fc7ef1a707607c6f52377c9d10a8677e980ffcdb5b3755b601e1ea89f",
+      publicKey: "ed25519:8cqm9b7PMcNjiBgeYD8M8tLrwp2ZepThL5qvDS4KcQHC",
+    });
   });
 });
