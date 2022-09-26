@@ -16,7 +16,6 @@ export async function signTransactions(
   const { transactions: transactionsArray, network } = params;
 
   const keyPair = await getKeyPair(wallet, network);
-
   // keystore
   const keystore = new InMemoryKeyStore();
   const { accountId } = await getAccount(wallet, params.network);
@@ -27,7 +26,7 @@ export async function signTransactions(
 
   //confirmation
   const confirmation = await showConfirmationDialog(wallet, {
-    description: `It will be signed with address: ${wallet.selectedAddress}`,
+    description: `It will be signed with address: ${accountId}`,
     prompt: `Do you want to sign this message${
       transactionsArray.length > 1 ? "s" : ""
     }?`,
