@@ -7,6 +7,7 @@ import { SignedTransaction } from "near-api-js/lib/transaction";
 import { mockSnapProvider } from "../wallet.stub";
 import { signTransactions } from "../../../src/rpc/signTransactions";
 import { bip32Entropy1Node } from "../near/bip32Entropy.mock";
+import { testNewMetamaskVersion } from "../constants";
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
@@ -20,6 +21,9 @@ describe("Test rpc handler function: signTransactions", function () {
   });
 
   it("should return valid transactions for testnet", async function () {
+    walletStub.request
+      .withArgs(sinon.match.has("method", "web3_clientVersion"))
+      .resolves(testNewMetamaskVersion);
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
       .resolves(bip32Entropy1Node);
@@ -60,6 +64,9 @@ describe("Test rpc handler function: signTransactions", function () {
 
   it("should fail without confirmation", async function () {
     walletStub.request
+      .withArgs(sinon.match.has("method", "web3_clientVersion"))
+      .resolves(testNewMetamaskVersion);
+    walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
       .resolves(bip32Entropy1Node);
 
@@ -93,6 +100,9 @@ describe("Test rpc handler function: signTransactions", function () {
   });
 
   it("should fail on wrong action", async function () {
+    walletStub.request
+      .withArgs(sinon.match.has("method", "web3_clientVersion"))
+      .resolves(testNewMetamaskVersion);
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
       .resolves(bip32Entropy1Node);

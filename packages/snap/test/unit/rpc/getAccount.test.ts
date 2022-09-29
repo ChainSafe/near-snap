@@ -7,6 +7,7 @@ import {
   bip32Entropy1Node,
 } from "../near/bip32Entropy.mock";
 import { mockSnapProvider } from "../wallet.stub";
+import { testNewMetamaskVersion } from "../constants";
 
 chai.use(sinonChai);
 
@@ -19,6 +20,9 @@ describe("Test rpc handler function: getAccount", function () {
   });
 
   it("should return valid address for mainnet", async function () {
+    walletStub.request
+      .withArgs(sinon.match.has("method", "web3_clientVersion"))
+      .resolves(testNewMetamaskVersion);
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
       .resolves(bip32Entropy397Node);
@@ -33,6 +37,9 @@ describe("Test rpc handler function: getAccount", function () {
   });
 
   it("should return valid address for testnet", async function () {
+    walletStub.request
+      .withArgs(sinon.match.has("method", "web3_clientVersion"))
+      .resolves(testNewMetamaskVersion);
     walletStub.request
       .withArgs(sinon.match.has("method", "snap_getBip32Entropy"))
       .resolves(bip32Entropy1Node);
