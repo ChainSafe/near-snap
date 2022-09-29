@@ -18,6 +18,8 @@
   },
   "initialPermissions": {
     "snap_confirm": {},
+    "snap_getBip44Entropy_1": {},
+    "snap_getBip44Entropy_397": {},
     "snap_getBip32Entropy": [
       {
         "path": [
