@@ -1,13 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "../../node_modules"
-      ]
-    },
     "outDir": "./build",
+    "skipLibCheck": true
   },
   "files": ["../../node_modules/@metamask/snap-types/global.d.ts"],
   "include": [

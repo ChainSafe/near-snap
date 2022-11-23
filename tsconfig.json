@@ -14,10 +14,6 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "sourceMap": true,
-    "outDir": "./build",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@types"
-    ]
+    "outDir": "./build"
   }
 }
