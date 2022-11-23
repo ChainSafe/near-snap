@@ -21,7 +21,8 @@
     "watch:snap": "mm-snap watch --sourceMaps --src src/index.ts",
     "serve": "mm-snap serve",
     "test": "yarn run test:unit",
-    "test:unit": "mocha --colors -r ts-node/register \"test/unit/**/*.test.ts\""
+    "test:unit": "mocha --colors -r ts-node/register \"test/unit/**/*.test.ts\"",
+    "test:integration": "yarn run build && mocha --colors --timeout 50000 -r ts-node/register \"test/integration/**/*.spec.ts\""
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     }
   },
   "devDependencies": {
+    "@chainsafe/dappeteer": "4.0.0-rc.0",
     "@metamask/providers": "^9.1.0",
     "@metamask/snap-types": "^0.18.1",
     "@metamask/snaps-cli": "^0.18.1",
@@ -72,6 +74,7 @@
     "concurrently": "^5.1.0",
     "eslint": "^8.17.0",
     "mocha": "^7.1.1",
+    "playwright": "^1.28.0",
     "sinon": "^9.0.1",
     "sinon-chai": "^3.5.0",
     "strict-event-emitter-types": "^2.0.0",

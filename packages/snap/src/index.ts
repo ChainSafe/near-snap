@@ -12,12 +12,25 @@ export enum Methods {
 export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
   switch (request.method) {
     case Methods.GetAddress:
-      assert(request.params, validAccountSchema);
-      return await getAccount(wallet, request.params.network);
+      try {
+        assert(request.params, validAccountSchema);
+        return await getAccount(wallet, request.params.network);
+      } catch (e) {
+        throw new Error(
+          "Invalid Request - check you have sent expected parameters"
+        );
+      }
+
     case Methods.SignTransaction:
-      assert(request.params, signTransactionsSchema);
-      // TODO: improve mapping from JSON to action and vice versa (required for milestone 2)
-      return await signTransactions(wallet, request.params);
+      try {
+        assert(request.params, signTransactionsSchema);
+        // TODO: improve mapping from JSON to action and vice versa (required for milestone 2)
+        return await signTransactions(wallet, request.params);
+      } catch (e) {
+        throw new Error(
+          "Invalid Request - check you have sent expected parameters"
+        );
+      }
 
     default:
       throw new Error("Method not found.");
