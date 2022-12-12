@@ -51,8 +51,8 @@ export async function signTransactions(
         network
       );
       signedTransactions.push([
-        Buffer.from(signedTransaction[0]).toString('hex'),
-        Buffer.from(signedTransaction[1].encode()).toString('hex')
+        Buffer.from(signedTransaction[0]).toString("hex"),
+        Buffer.from(signedTransaction[1].encode()).toString("hex"),
       ]);
     } catch (e) {
       throw new Error(

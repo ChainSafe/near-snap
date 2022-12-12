@@ -3,7 +3,6 @@ import sinonChai from "sinon-chai";
 import chaiAsPromised from "chai-as-promised";
 import sinon from "sinon";
 import { FunctionCallAction } from "@near-wallet-selector/core";
-import { SignedTransaction } from "near-api-js/lib/transaction";
 import { mockSnapProvider } from "../wallet.stub";
 import { signTransactions } from "../../../src/rpc/signTransactions";
 import { bip32Entropy1Node } from "../near/bip32Entropy.mock";
