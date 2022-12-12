@@ -50,12 +50,8 @@ describe("Test rpc handler function: signTransactions", function () {
         },
       ],
     });
-
-    const signedTx = SignedTransaction.decode(
-      Buffer.from(Object.values(Uint8Array.from(Buffer.from(result[0][1], 'hex'))))
-    );
-
-    expect(signedTx).to.not.be.null;
+    const decodedResult = Uint8Array.from(Buffer.from(result[0][1], 'hex'))
+    expect(decodedResult).to.be.an.instanceOf(Uint8Array);
   });
 
   it("should fail without confirmation", async function () {
