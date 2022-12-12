@@ -6,10 +6,7 @@ const bundlePath = pathUtils.join(snapConfig.cliOptions.dist, snapConfig.cliOpti
 
 let bundleString = fs.readFileSync(bundlePath, 'utf8');
 
-
-// Remove readonly assignment 
-bundleString = bundleString.replace(`Error.captureStackTrace = `, '');
-bundleString = bundleString.replace(`Error.getStackTrace = function `, 'function removed1 ');
-
+bundleString = bundleString.replaceAll(`Error.captureStackTrace = function `, 'function removed2');
+bundleString = bundleString.replaceAll(`Error.getStackTrace = function `, 'function removed1 ');
 
 fs.writeFileSync(bundlePath, bundleString);

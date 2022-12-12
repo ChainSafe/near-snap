@@ -52,7 +52,7 @@ describe("Test rpc handler function: signTransactions", function () {
     });
 
     const signedTx = SignedTransaction.decode(
-      Buffer.from(Object.values(result[0][1]))
+      Buffer.from(Object.values(Uint8Array.from(Buffer.from(result[0][1], 'hex'))))
     );
 
     expect(signedTx).to.not.be.null;

@@ -1,13 +1,13 @@
 {
   "version": "1.0.3",
-  "proposedName": "Near snap",
   "description": "The Near snap.",
+  "proposedName": "Near snap",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chainsafe/near-snap.git"
   },
   "source": {
-    "shasum": "4akDlpqksHkPSCuhrHS/KQewl0w12xgMESjy3WSZlfA=",
+    "shasum": "Zq9EyMOCFXe/KV3i6HIKYAUZCib+QWLzQaBoUXAERYw=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",
