@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.3...near-snap-v1.0.4) (2022-12-14)
+
+
+### Bug Fixes
+
+* display signing params ([#23](https://github.com/ChainSafe/near-snap/issues/23)) ([aab8ac1](https://github.com/ChainSafe/near-snap/commit/aab8ac114ecaf3d2ea63679daa7c09f13c892bc6))
+* signTransactions, uint8 tuple array to hex tuple array ([#27](https://github.com/ChainSafe/near-snap/issues/27)) ([d9ddf5a](https://github.com/ChainSafe/near-snap/commit/d9ddf5a468c2870d53668cb4578b4675d9519766))
+
 ## [1.0.3](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.2...near-snap-v1.0.3) (2022-09-22)
 
 
