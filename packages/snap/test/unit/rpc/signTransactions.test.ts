@@ -3,7 +3,6 @@ import sinonChai from "sinon-chai";
 import chaiAsPromised from "chai-as-promised";
 import sinon from "sinon";
 import { FunctionCallAction } from "@near-wallet-selector/core";
-import { SignedTransaction } from "near-api-js/lib/transaction";
 import { mockSnapProvider } from "../wallet.stub";
 import { signTransactions } from "../../../src/rpc/signTransactions";
 import { bip32Entropy1Node } from "../near/bip32Entropy.mock";
@@ -50,12 +49,8 @@ describe("Test rpc handler function: signTransactions", function () {
         },
       ],
     });
-
-    const signedTx = SignedTransaction.decode(
-      Buffer.from(Object.values(result[0][1]))
-    );
-
-    expect(signedTx).to.not.be.null;
+    expect(result[0][0]).to.be.eq("fa7a2bbff2fed7e20cd093b692ead02db8e4cb97f7cff53b3c9bcad6dfe26be7")
+    expect(result[0][1]).to.be.eq("4000000037313330343536666337656631613730373630376336663532333737633964313061383637376539383066666364623562333735356236303165316561383966007130456fc7ef1a707607c6f52377c9d10a8677e980ffcdb5b3755b601e1ea89f8855b081845a00001200000067756573742d626f6f6b2e746573746e657444f97176d3033330a0e771db3ccfc456d603e0db8231a28cfa0aba6de73bf26101000000020a0000006164644d657373616765120000007b2274657874223a226d657373616765227d00e057eb481b0000000000000000000000000000000000000098872b6c0ac72029df6f055b199229434c904dcbcd15de66fa6834d56e079f57503adf5227314d14a6c74a2bf267fdc80237f9d8145f4900bd8b7b90814d7e08")
   });
 
   it("should fail without confirmation", async function () {
