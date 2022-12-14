@@ -1,6 +1,6 @@
 {
   "name": "@chainsafe/near-snap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Metamask snap to interact with Near dapps.",
   "main": "build/index.js",
   "scripts": {
