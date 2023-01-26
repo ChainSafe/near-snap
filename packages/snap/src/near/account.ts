@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { JsonBIP44Node } from "@metamask/key-tree";
 import { SnapProvider } from "@metamask/snap-types";
 import bs58 from "bs58";
@@ -22,7 +23,9 @@ export async function getKeyPair(
     },
   })) as JsonBIP44Node;
 
-  const seed = Uint8Array.from(Buffer.from(node.privateKey, "hex"));
+  const seed = Uint8Array.from(
+    Buffer.from(node.privateKey.substring(2), "hex")
+  );
   const secretKey = nacl.sign.keyPair.fromSeed(seed).secretKey;
 
   return KeyPair.fromString(bs58.encode(secretKey));
