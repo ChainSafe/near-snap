@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { SnapProvider } from "@metamask/snap-types";
 import { NearNetwork } from "../interfaces";
 import { getKeyPair } from "../near/account";

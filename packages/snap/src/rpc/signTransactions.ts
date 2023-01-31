@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { transactions, InMemorySigner, utils } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
 import { SnapProvider } from "@metamask/snap-types";
