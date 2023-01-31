@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.4...near-snap-v1.0.5) (2023-01-31)
+
+
+### Bug Fixes
+
+* mm-flask1.23 breaking change ([#28](https://github.com/ChainSafe/near-snap/issues/28)) ([ac5cc89](https://github.com/ChainSafe/near-snap/commit/ac5cc893db1818d095afdf5211ea33d047bdc6af))
+
 ## [1.0.4](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.3...near-snap-v1.0.4) (2022-12-14)
 
 
