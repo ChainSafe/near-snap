@@ -7,7 +7,7 @@
     "url": "git+https://github.com/chainsafe/near-snap.git"
   },
   "source": {
-    "shasum": "SWNboTGmqfr7tIEFSz51A2FzKBJQKl2w1tScgSXZfXE=",
+    "shasum": "3XYEG/rObwzeyJgw73dAtbnUqiuI/aeap1ZAgZ3VIco=",
     "location": {
       "npm": {
         "filePath": "./dist/bundle.js",
@@ -17,6 +17,10 @@
     }
   },
   "initialPermissions": {
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": true
+    },
     "snap_confirm": {},
     "snap_getBip32Entropy": [
       {

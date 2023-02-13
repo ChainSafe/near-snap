@@ -1,16 +1,16 @@
 import { Buffer } from "buffer";
-import { SnapProvider } from "@metamask/snap-types";
+import { SnapsGlobalObject } from "@metamask/snaps-types";
 import { NearNetwork } from "../interfaces";
 import { getKeyPair } from "../near/account";
 
 export async function getAccount(
-  wallet: SnapProvider,
+  snap: SnapsGlobalObject,
   network: NearNetwork
 ): Promise<{
   accountId: string;
   publicKey: string;
 }> {
-  const keyPair = await getKeyPair(wallet, network);
+  const keyPair = await getKeyPair(snap, network);
   const accountId = Buffer.from(keyPair.getPublicKey().data).toString("hex");
   const publicKey = keyPair.getPublicKey().toString();
   return {

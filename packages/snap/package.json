@@ -55,9 +55,9 @@
     }
   },
   "devDependencies": {
-    "@metamask/providers": "^9.1.0",
-    "@metamask/snap-types": "^0.18.1",
+    "@metamask/providers": "^10.2.1",
     "@metamask/snaps-cli": "^0.18.1",
+    "@metamask/snaps-types": "0.29.0",
     "@types/bn.js": "^5",
     "@types/chai": "^4.2.10",
     "@types/chai-as-promised": "^7.1.5",
