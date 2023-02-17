@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.5...near-snap-v1.0.6) (2023-02-17)
+
+
+### Bug Fixes
+
+* flask1.25 release ([#31](https://github.com/ChainSafe/near-snap/issues/31)) ([00a2c50](https://github.com/ChainSafe/near-snap/commit/00a2c50ab64d2ad6873d297a98ca513079ba38e5))
+
 ## [1.0.5](https://github.com/ChainSafe/near-snap/compare/near-snap-v1.0.4...near-snap-v1.0.5) (2023-01-31)
 
 
