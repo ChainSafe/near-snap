@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import { transactions, InMemorySigner, utils } from "near-api-js";
 import { InMemoryKeyStore } from "near-api-js/lib/key_stores";
-import { SnapProvider } from "@metamask/snap-types";
+import { SnapsGlobalObject } from "@metamask/snaps-types";
 import { getKeyPair } from "../near/account";
 import { SignTransactionsParams } from "../interfaces";
 import { createAction } from "../utils/createAction";
@@ -10,23 +10,23 @@ import { messageCreator } from "../utils/messageCreator";
 import { getAccount } from "./getAccount";
 
 export async function signTransactions(
-  wallet: SnapProvider,
+  snap: SnapsGlobalObject,
   params: SignTransactionsParams
 ): Promise<[string, string][]> {
   const signedTransactions: [string, string][] = [];
   const { transactions: transactionsArray, network } = params;
 
-  const keyPair = await getKeyPair(wallet, network);
+  const keyPair = await getKeyPair(snap, network);
   // keystore
   const keystore = new InMemoryKeyStore();
-  const { accountId } = await getAccount(wallet, params.network);
+  const { accountId } = await getAccount(snap, params.network);
 
   await keystore.setKey(network, accountId, keyPair);
 
   const signer = new InMemorySigner(keystore);
 
   //confirmation
-  const confirmation = await showConfirmationDialog(wallet, {
+  const confirmation = await showConfirmationDialog(snap, {
     description: `It will be signed with address: ${accountId}`,
     prompt: `Do you want to sign this message${
       transactionsArray.length > 1 ? "s" : ""
