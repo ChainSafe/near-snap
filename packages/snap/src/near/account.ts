@@ -1,9 +1,9 @@
 import { Buffer } from "buffer";
 import { JsonBIP44Node } from "@metamask/key-tree";
-import { SnapProvider } from "@metamask/snap-types";
 import bs58 from "bs58";
 import { KeyPair } from "near-api-js";
 import nacl from "tweetnacl";
+import { SnapsGlobalObject } from "@metamask/snaps-types";
 import { NearNetwork } from "../interfaces";
 
 const nearNetwork = {
@@ -12,10 +12,10 @@ const nearNetwork = {
 };
 
 export async function getKeyPair(
-  wallet: SnapProvider,
+  snap: SnapsGlobalObject,
   network: NearNetwork
 ): Promise<KeyPair> {
-  const node = (await wallet.request({
+  const node = (await snap.request({
     method: `snap_getBip32Entropy`,
     params: {
       path: ["m", "44'", `${nearNetwork[network]}'`, "0'"],
