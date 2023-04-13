@@ -16,8 +16,7 @@
     "build": "yarn workspaces foreach -vpt run build",
     "test": "yarn workspaces foreach -vpt run test",
     "lint": "yarn workspaces foreach -vpt run lint",
-    "lint:style:fix": "yarn workspaces foreach -vp run lint:style:fix",
-    "demo": "concurrently  --raw --kill-others \"yarn run start:snap\" \"yarn run start:example\""
+    "lint:style:fix": "yarn workspaces foreach -vp run lint:style:fix"
   },
   "devDependencies": {
     "@chainsafe/eslint-config": "^1.0.0",
