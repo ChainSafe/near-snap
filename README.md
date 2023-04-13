@@ -1,5 +1,3 @@
-Your documentation looks good overall, but I have a few recommendations to improve its clarity and organization. I've made some changes to the headings, added a "Project Structure" section, and made a few other minor adjustments:
-
 # NearSnap - MetaMask Snap for NEAR Protocol
 
 ## Table of Contents
