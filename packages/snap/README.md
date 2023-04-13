@@ -12,12 +12,15 @@
 <a name="introduction"></a>
 ## Introduction
 
-NearSnap is a MetaMask Snap that enables MetaMask users to interact with NEAR Protocol-powered dApps. This package provides the functionality to integrate the NEAR Protocol into MetaMask using the Snaps system. This Snap is intended to work with the [NEAR Wallet Selector](https://github.com/near/wallet-selector).
+NearSnap is a MetaMask Snap that enables MetaMask users to interact with NEAR Protocol-powered dApps.  
+This package provides the functionality to integrate the NEAR Protocol into MetaMask using the Snaps system.  
+This Snap is intended to work with the [NEAR Wallet Selector](https://github.com/near/wallet-selector).
 
 <a name="requirements"></a>
 ## Requirements
 
-Ensure you are set up and ready to go with the [NearSnap Monorepo](../README.md#prerequisites). To use the NearSnap package, you need to have the [MetaMask Flask](https://metamask.io/flask/) browser extension installed and set up, and be familiar with [developing Snaps](https://metamask.io/snaps/).
+Ensure you are set up and ready to go with the [NearSnap Monorepo](../README.md#prerequisites).  
+To use the NearSnap package, you need to have the [MetaMask Flask](https://metamask.io/flask/) browser extension installed and set up, and be familiar with [developing Snaps](https://metamask.io/snaps/).
 
 <a name="usage-and-developing"></a>
 ## Usage and Developing
@@ -36,7 +39,8 @@ yarn start
 <a name="initialize-snap"></a>
 ### Initialize Snap
 
-Open a browser with any website (e.g., http://example.com/), with the Developer Tools open. Run this command in the console to initialize the Snap:
+Open a browser with any website (e.g., http://example.com/), with the Developer Tools open.  
+Run this command in the console to initialize the Snap:
 
 ```javascript
 window.ethereum.request({
