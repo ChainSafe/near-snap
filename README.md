@@ -51,13 +51,8 @@ cd near-snap
 <details>
     <summary>When using nvm and corepack - click here</summary>
 
-```shell
-nvm use
-```
-
-```shell
-corepack enable
-```
+    nvm use
+    corepack enable
 
 </details>
 
