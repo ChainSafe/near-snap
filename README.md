@@ -1,31 +1,32 @@
-# NearSnap - MetaMask Snap
+Your documentation looks good overall, but I have a few recommendations to improve its clarity and organization. I've made some changes to the headings, added a "Project Structure" section, and made a few other minor adjustments:
+
+# NearSnap - MetaMask Snap for NEAR Protocol
 
 ## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Getting Started](#getting-started)
-4. [Building and Running](#building-and-running)
-5. [Testing](#testing)
-6. [Linting](#linting)
+4. [Building and Running the Snap](#building-and-running-the-snap)
+5[Testing](#testing)
+6[Linting and Formatting](#linting-and-formatting)
 
 <a name="introduction"></a>
 ## Introduction
 
-Metamask Snap to enable Metamask users to interact with Near dapps.
+NearSnap is a MetaMask Snap that enables MetaMask users to interact with NEAR Protocol-powered dApps.
 
-This project is a monorepo containing MetaMask Snap package, managed by [Yarn 3 Workspaces](https://yarnpkg.com/features/workspaces).
-The goal of this project is to provide a native interaction with NEAR protocol inside MetaMask using Snaps system.
+This project is a monorepo containing the MetaMask Snap package, managed by [Yarn 3 Workspaces](https://yarnpkg.com/features/workspaces). The goal of this project is to provide native interaction with the NEAR Protocol inside MetaMask using the Snaps system.
 
 <a name="prerequisites"></a>
 ## Prerequisites
 
-Before you can start working with the project, make sure you have the following software:
+Before you can start working with the project, make sure you have the following software installed:
 
 - [Node.js](https://nodejs.org/) (version 16 or newer)
 - [Yarn](https://yarnpkg.com/) (version 3.x)
 
-or (recommended)
+Or (recommended):
 
 - [nvm](https://github.com/nvm-sh/nvm)
 - [corepack](https://github.com/nodejs/corepack)
@@ -50,7 +51,7 @@ cd near-snap
 3. Install the dependencies:
 
 <details>
-    <summary>In case usage of `nvm` and `corepack` - click here</summary>
+    <summary>When using `nvm` and `corepack` - click here</summary>
 
     ```shell
         nvm use
@@ -66,8 +67,8 @@ cd near-snap
 yarn install
 ```
 
-<a name="building-and-running"></a>
-## Building and Running
+<a name="building-and-running-the-snap"></a>
+## Building and Running the Snap
 
 To build and run the project, follow these steps:
 
@@ -77,7 +78,7 @@ To build and run the project, follow these steps:
 yarn build
 ```
 
-2. Run a MetaMask Snap:
+2. Run the MetaMask Snap:
 
 ```shell
 yarn start:snap
@@ -92,11 +93,10 @@ To run tests for all packages:
 yarn test
 ```
 
-<a name="linting"></a>
-## Linting
+<a name="linting-and-formatting"></a>
+## Linting and Formatting
 
-This project uses [ESLint](https://eslint.org/) to enforce code style and formatting.  
-To check code quality with linter, run:
+This project uses [ESLint](https://eslint.org/) to enforce code style and formatting. To check code quality with the linter, run:
 
 ```shell
 yarn lint
