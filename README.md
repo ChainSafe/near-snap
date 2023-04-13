@@ -8,8 +8,8 @@ Your documentation looks good overall, but I have a few recommendations to impro
 2. [Prerequisites](#prerequisites)
 3. [Getting Started](#getting-started)
 4. [Building and Running the Snap](#building-and-running-the-snap)
-5[Testing](#testing)
-6[Linting and Formatting](#linting-and-formatting)
+5. [Testing](#testing)
+6. [Linting and Formatting](#linting-and-formatting)
 
 <a name="introduction"></a>
 ## Introduction
