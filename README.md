@@ -49,7 +49,7 @@ cd near-snap
 3. Install the dependencies:
 
 <details>
-    <summary>When using `nvm` and `corepack` - click here</summary>
+    <summary>When using nvm and corepack - click here</summary>
 
     ```shell
         nvm use
