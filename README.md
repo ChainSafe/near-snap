@@ -1,4 +1,7 @@
-# NearSnap - MetaMask Snap for NEAR Protocol
+# [ARCHIVED] NearSnap - MetaMask Snap for NEAR Protocol
+
+> [!CAUTION]
+> This repository is no longer active. It has been superseded by [here-wallet/near-snap](https://github.com/here-wallet/near-snap).
 
 ## Table of Contents
 
